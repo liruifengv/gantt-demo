@@ -1,5 +1,4 @@
 <template>
-  <div id="app">
     <div class="container">
       <Gantt
         :currentTime="currentTime"
@@ -30,10 +29,9 @@
         <template v-slot:left="{ data }">
           <GanttLeft :data="data"></GanttLeft>
         </template>
-        <template v-slot:title>铁胆火车侠日程表 </template>
+        <template v-slot:title>航空器调配</template>
       </Gantt>
     </div>
-  </div>
 </template>
 
 <script>
@@ -50,9 +48,9 @@ export default {
     return {
       timeLines: [],
       cellWidth: 50,
-      cellHeight: 30,
+      cellHeight: 40,
       titleHeight: 40,
-      titleWidth: 250,
+      titleWidth: 100,
       scale: 60,
       scrollToTime: dayjs()
         .add(1, "day")
@@ -60,7 +58,6 @@ export default {
       scrollToPostion: { x: 10000, y: 10000 },
       hideHeader: false,
       hideSecondGantt: false,
-      arrayKeys: ["gtArray", "error"],
       scrollToY: 0,
       positionB: {},
       positionA: {}
@@ -73,6 +70,9 @@ export default {
   },
   props: {
     ganttData: {
+      type: Array
+    },
+    arrayKeys: {
       type: Array
     },
     currentTime: '',
@@ -108,45 +108,11 @@ export default {
 </script>
 
 <style scoped>
-body {
-  font: 12px;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  padding: 0 10px;
-  height: calc(100vh - 2px);
-}
-
-label {
-  margin-left: 10px;
-}
-input {
-  width: 40px;
-  height: 20px;
-  vertical-align: middle;
-}
-input[type="range"] {
-  width: 100px;
-}
-.top-bar {
-  height: 40px;
-}
-
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
   flex: 1;
-}
-
-.main-footer {
-  /* height: 30px; */
 }
 
 >>> .el-slider {

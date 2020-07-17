@@ -6,9 +6,11 @@
     ></div>
     <div
       class="gantt-block"
+      :class="activeRow=== index ? 'gantt-active-row' : ''"
       :style="blockStyle"
       v-for="(data, index) in showDatas"
       :key="dataKey ? data[dataKey] : index"
+      @click="clickRow(data, index)"
     >
       <template v-if="!customGenerateBlocks">
         <template v-for="(item, index) in concatArray(data)">
@@ -53,6 +55,11 @@ import { isUndef, warn } from "../../utils/tool.js";
 
 export default {
   name: "Blocks",
+  data () {
+    return {
+      activeRow: ''
+    }
+  },
   mixins: [dr],
   props: {
     dataKey: String,
@@ -233,6 +240,9 @@ export default {
       }
 
       return this.getPositonOffset(block.start);
+    },
+    clickRow (data, index) {
+      this.activeRow = index
     }
   }
 };

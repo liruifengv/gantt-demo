@@ -1,9 +1,9 @@
 <template>
-  <div class="name" :style="{ background: data.colorPair.light }">
-    <div class="colorBar" :style="{ background: data.colorPair.dark }" />
-    <div class="type">{{ data.type }}</div>
-    <div class="carId">{{ data.name }}{{ data.id }}</div>
-    <div class="speed">{{ data.speed }}km/s</div>
+  <div class="name">
+    <div class="colorBar"/>
+    <div class="type">{{ data.id }}</div>
+    <div class="carId">{{ data.model }}{{ data.number }}</div>
+    <div class="speed">{{ data.currentAirort }}</div>
   </div>
 </template>
 

@@ -10,27 +10,22 @@
       @click="onClick"
     >
       <div class="runTime">
-        <span>S:{{ startToString }}</span>
-        <span>E:{{ endToString }}</span>
+        <span>{{ item.filghtNumber }}</span>
+        <span>{{ item.startAirport }}</span>
+        <span>{{ item.endAirport }}</span>
       </div>
-      <div class="middle">编号{{ item.id }}</div>
-      <!-- <div class="passenger">{{item.passenger}}人</div> -->
     </div>
 
     <div class="detail">
-      <span class="header">{{ data.type }}{{ data.name }}{{ data.id }}</span>
       <ul>
         <li>
-          <span>发车时间：</span><span>{{ startToString }}</span>
+          <span>航班号：</span><span>{{ item.filghtNumber }}</span>
         </li>
         <li>
-          <span>到站时间：</span><span>{{ endToString }}</span>
+          <span>起飞机场：</span><span>{{ item.startAirport }}</span>
         </li>
         <li>
-          <span>载员：</span><span>{{ item.passenger }}</span>
-        </li>
-        <li>
-          <span>编号：</span><span>{{ item.id }}</span>
+          <span>降落机场：</span><span>{{ item.endAirport }}</span>
         </li>
       </ul>
     </div>
@@ -38,8 +33,6 @@
 </template>
 
 <script>
-import dayjs from "dayjs";
-
 const NOW_PLAN = "#D5F8EA";
 const FUTHER_PLAN = "#BFF2FE";
 const PAST_PLAN = "#F2F2F2";
@@ -52,21 +45,16 @@ export default {
     cellHeight: Number,
     startTimeOfRenderArea: Number
   },
-  data() {
-    return {
-      dayjs: dayjs
-    };
-  },
   computed: {
     statusColor() {
       return FUTHER_PLAN; // Future
-    },
-    startToString() {
-      return dayjs(this.item.start).format("HH:mm");
-    },
-    endToString() {
-      return dayjs(this.item.end).format("HH:mm");
     }
+  },
+  created () {
+    console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
+    console.log('data:', this.data)
+    console.log('item:', this.item)
+    console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
   },
   methods: {
     onClick() {
@@ -83,8 +71,6 @@ export default {
   padding-left: 5px;
 }
 .runTime {
-  display: flex;
-  flex-direction: column;
 }
 .plan {
   display: flex;
@@ -96,6 +82,7 @@ export default {
   color: #333333;
   padding-left: 5px;
   font-size: 0.8rem;
+  border: 1px solid #f0f0f0;
   // opacity: 0.8;
 }
 

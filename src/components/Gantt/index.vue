@@ -177,11 +177,11 @@ import {
   getWidthAbout2Times as _getWidthAbout2Times
 } from "./utils/gtUtils.js";
 import throttle from "./utils/throttle.js";
-import Timeline from "./components/time-line/index.vue";
-import CurrentTime from "./components/mark-line/current-time.vue";
-import LeftBar from "./components/left-bar/index.vue";
-import Blocks from "./components/blocks/index.vue";
-import MarkLine from "./components/mark-line/index.vue";
+import Timeline from "./base/time-line/index.vue";
+import CurrentTime from "./base/mark-line/current-time.vue";
+import LeftBar from "./base/left-bar/index.vue";
+import Blocks from "./base/blocks/index.vue";
+import MarkLine from "./base/mark-line/index.vue";
 
 export default {
   name: "Gantt",

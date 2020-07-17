@@ -121,12 +121,11 @@ $font-gray:#777;
       overflow: hidden;
     }
   }
-
   &-block {
     position: relative;
-    background-image: url('./assets/block.png');
     background-repeat: repeat;
-
+    border: 1px solid $gray;
+    cursor: pointer;
     &-container {
       position: relative;
       height: 100%;
@@ -143,6 +142,10 @@ $font-gray:#777;
       outline: 1px solid $gray;
       background: $gray;
     }
+  }
+
+  &-active-row {
+    background: $gray;
   }
 
   &-scroll-y {
