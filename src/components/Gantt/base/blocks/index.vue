@@ -97,7 +97,7 @@ export default {
     blockStyle() {
       return {
         backgroundSize: `${this.cellWidth}px ${this.cellHeight}px`,
-        height: `${this.cellHeight}px`
+        height: `${this.cellHeight/1.2}px`
       };
     }
   },

@@ -1,9 +1,13 @@
 <template>
-  <div class="name">
-    <div class="colorBar"/>
-    <div class="type">{{ data.id }}</div>
-    <div class="carId">{{ data.model }}{{ data.number }}</div>
-    <div class="speed">{{ data.currentAirort }}</div>
+  <div class="left-item" :class="[
+    unassigned
+  ]">
+    <div class="colorBar" />
+    <div class='content'>
+      <div class="content-item model" :title="data.model">{{ data.model }}</div>
+      <div class="content-item number" :title="data.number">{{ data.number }}</div>
+      <div class="content-item currentAirort" :title="data.currentAirort">{{ data.currentAirort }}</div>
+    </div>
   </div>
 </template>
 
@@ -12,12 +16,17 @@ export default {
   name: "GanttMain",
   props: {
     data: Object
+  },
+  computed: {
+    unassigned () {
+      return this.data.unassigned ? `left-item--unassigned` : ''
+    }
   }
 };
 </script>
 
-<style scoped>
-.name {
+<style scoped lang="scss">
+.left-item {
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
@@ -26,18 +35,30 @@ export default {
   padding: 0 5px 0 0;
   border-radius: 8px 0 0 8px;
   align-items: center;
+  background:rgba(180,209,125,0.2);
 }
 .colorBar {
-  width: 10px;
-  height: 100%;
+  width:10px;
+  height:40px;
+  background:rgba(180,209,125,1);
+  border-radius:7px 0px 0px 7px;
+}
+.left-item--unassigned {
+  background:rgba(241,206,99,.2);
+  .colorBar {
+    background:rgba(255,205,49,1);
+  }
 }
 
-.carId {
-  flex: 1;
+.content {
+  display: flex;
+  overflow: hidden;
 }
-
-.type {
-  padding: 0 5px 0 0;
-  font-size: 1.2rem;
+.content-item {
+  width: 33.3%;
+  overflow: hidden;
+  margin-left: 5px;
+  white-space:nowrap;
+  cursor: pointer;
 }
 </style>

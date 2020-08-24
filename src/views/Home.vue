@@ -54,20 +54,25 @@ export default {
           currentAirort: '北京机场',
           number: 'B-1323',
           model: 'H125',
+          unassigned: true,
           childArrary: [
             {
               childId: 1,
               startAirport: '天津机场',
               endAirport: '北京机场',
-              start: '2020/07/16 22:00:00',
-              end: '2020/07/16 23:00:00',
+              workType: '农林喷洒',
+              state: 1,
+              start: '2020/07/30 22:00:00',
+              end: '2020/07/30 23:00:00',
             },
             {
               childId: 2,
               startAirport: '天津机场',
               endAirport: '北京机场',
-              start: '2020/07/17 08:00:00',
-              end: '2020/07/17 10:00:00',
+              workType: '农林喷洒',
+              state: 2,
+              start: '2020/07/30 08:00:00',
+              end: '2020/07/30 10:00:00',
             }
           ]
         },
@@ -82,16 +87,20 @@ export default {
               filghtNumber: '4343',
               startAirport: '天津机场',
               endAirport: '北京机场',
-              start: '2020/07/16 22:00:00',
-              end: '2020/07/16 23:00:00',
+              workType: '农林喷洒',
+              state: 3,
+              start: '2020/07/30 22:00:00',
+              end: '2020/07/30 23:00:00',
             },
             {
               childId: 2,
               filghtNumber: '4343',
               startAirport: '天津机场',
               endAirport: '北京机场',
-              start: '2020/07/17 08:00:00',
-              end: '2020/07/17 10:00:00',
+              workType: '农林喷洒',
+              state: 4,
+              start: '2020/07/30 10:00:00',
+              end: '2020/07/30 12:00:00',
             }
           ]
         },
@@ -106,16 +115,20 @@ export default {
               filghtNumber: '4343',
               startAirport: '天津机场',
               endAirport: '北京机场',
-              start: '2020/07/16 22:00:00',
-              end: '2020/07/16 23:00:00',
+              workType: '农林喷洒',
+              state: 5,
+              start: '2020/07/30 22:00:00',
+              end: '2020/07/30 23:00:00',
             },
             {
               childId: 2,
               filghtNumber: '4343',
               startAirport: '天津机场',
               endAirport: '北京机场',
-              start: '2020/07/17 08:00:00',
-              end: '2020/07/17 10:00:00',
+              workType: '农林喷洒',
+              state: 6,
+              start: '2020/07/30 08:00:00',
+              end: '2020/07/30 10:00:00',
             }
           ]
         },
@@ -130,16 +143,30 @@ export default {
               filghtNumber: '4343',
               startAirport: '天津机场',
               endAirport: '北京机场',
-              start: '2020/07/16 22:00:00',
-              end: '2020/07/16 23:00:00',
+              workType: '农林喷洒',
+              state: 7,
+              start: '2020/07/30 21:00:00',
+              end: '2020/07/30 22:00:00',
             },
             {
               childId: 2,
               filghtNumber: '121',
               startAirport: '天津机场',
               endAirport: '北京机场',
-              start: '2020/07/17 08:00:00',
-              end: '2020/07/17 10:00:00',
+              workType: '农林喷洒',
+              state: 8,
+              start: '2020/07/30 09:00:00',
+              end: '2020/07/30 11:00:00',
+            },
+            {
+              childId: 3,
+              filghtNumber: '121',
+              startAirport: '天津机场',
+              endAirport: '北京机场',
+              workType: '农林喷洒',
+              state: 9,
+              start: '2020/07/30 13:00:00',
+              end: '2020/07/30 15:00:00',
             }
           ]
         }
@@ -158,7 +185,7 @@ export default {
       this.$once("hook:beforeDestroy", () => {
         clearInterval(timeNow);
       });
-      this.startTime = dayjs().subtract(3, "hour").toString()
+      this.startTime = dayjs().subtract(12, "hour").toString()
       this.endTime = dayjs().add(2, "day").toString()
     }
   }

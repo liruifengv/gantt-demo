@@ -51,10 +51,8 @@ export default {
     }
   },
   created () {
-    console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
     console.log('data:', this.data)
     console.log('item:', this.item)
-    console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
   },
   methods: {
     onClick() {
@@ -65,11 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.middle {
-  flex: 1;
-  text-align: center;
-  padding-left: 5px;
-}
 .runTime {
 }
 .plan {

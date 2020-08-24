@@ -29,7 +29,6 @@
         <template v-slot:left="{ data }">
           <GanttLeft :data="data"></GanttLeft>
         </template>
-        <template v-slot:title>航空器调配</template>
       </Gantt>
     </div>
 </template>
@@ -47,10 +46,10 @@ export default {
   data() {
     return {
       timeLines: [],
-      cellWidth: 50,
+      cellWidth: 40,
       cellHeight: 40,
-      titleHeight: 40,
-      titleWidth: 100,
+      titleHeight: 80,
+      titleWidth: 150,
       scale: 60,
       scrollToTime: dayjs()
         .add(1, "day")

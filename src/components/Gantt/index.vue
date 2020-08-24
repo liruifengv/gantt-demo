@@ -20,7 +20,28 @@
             width: titleWidth + 'px'
           }"
         >
-          <slot name="title">welcome v-gantt-chart</slot>
+          <div
+          class="gantt-header-title-item"
+          :style="{
+            'line-height': titleHeight/2 + 'px',
+            height: titleHeight/2 + 'px',
+            width: titleWidth + 'px'
+          }"
+          >
+            <div class="gantt-header-title-item-left"></div>
+            <span class="gantt-header-title-item-text">日期</span>
+          </div>
+          <div
+          class="gantt-header-title-item"
+          :style="{
+            'line-height': titleHeight/2 + 'px',
+            height: titleHeight/2 + 'px',
+            width: titleWidth + 'px'
+          }" 
+          >
+            <div class="gantt-header-title-item-left"></div>
+            <span class="gantt-header-title-item-text">时间刻度</span>
+          </div>
         </div>
         <div ref="headerTimeline" class="gantt-header-timeline">
           <div
