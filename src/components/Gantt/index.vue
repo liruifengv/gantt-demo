@@ -124,6 +124,7 @@
               :startTimeOfRenderArea="startTimeOfRenderArea"
               :endTimeOfRenderArea="endTimeOfRenderArea"
               :preload="preload"
+              @handelDrop="handelDrop"
               :style="{ width: totalWidth + 'px' }"
             >
               <template v-if="!customGenerateBlocks" v-slot="{ data, item }">
@@ -483,6 +484,11 @@ export default {
   },
 
   methods: {
+    handelDrop (e) {
+      console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
+      console.log('e:', e)
+      console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
+    },
     getWidthAbout2Times(start, end) {
       const options = {
         scale: this.scale,

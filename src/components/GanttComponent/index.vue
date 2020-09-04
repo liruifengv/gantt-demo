@@ -85,6 +85,11 @@ export default {
   mounted() {
   },
   methods: {
+    blockDrop (e) {
+      console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
+      console.log('blockDrop:', e)
+      console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
+    },
     updateTimeLines(timeA, timeB) {
       this.timeLines = [
         {

@@ -152,6 +152,7 @@ $font-gray:#777;
     position: relative;
     background-repeat: repeat;
     background-image: url('./assets/block.png');
+    border-top: 0.5px solid #fff;
     cursor: pointer;
     &-container {
       position: relative;

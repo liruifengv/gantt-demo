@@ -1,35 +1,23 @@
 <template>
-  <el-popover placement="bottom" trigger="hover">
-    <div
-      slot="reference"
-      class="plan"
-      :style="{
-        'background-color': statusColor,
-        'margin-top': 0.1 * cellHeight + 'px'
-      }"
-      @click="onClick"
-    >
-      <div class="runTime">
-        <span>{{ item.filghtNumber }}</span>
-        <span>{{ item.startAirport }}</span>
-        <span>{{ item.endAirport }}</span>
-      </div>
+  <div
+    slot="reference"
+    class="flight"
+    :style="{
+      'background-color': statusColor,
+      'margin-top': 0.1 * cellHeight + 'px'
+    }"
+    @click="onClick"
+    @dragstart="handleStart"
+    @drag="handleDrag"
+    @dragend="handleEnd"
+    draggable="true"
+  >
+    <div class="content">
+      <span>{{ item.filghtNumber }}</span>
+      <span>{{ item.startAirport }}</span>
+      <span>{{ item.endAirport }}</span>
     </div>
-
-    <div class="detail">
-      <ul>
-        <li>
-          <span>航班号：</span><span>{{ item.filghtNumber }}</span>
-        </li>
-        <li>
-          <span>起飞机场：</span><span>{{ item.startAirport }}</span>
-        </li>
-        <li>
-          <span>降落机场：</span><span>{{ item.endAirport }}</span>
-        </li>
-      </ul>
-    </div>
-  </el-popover>
+  </div>
 </template>
 
 <script>
@@ -55,17 +43,24 @@ export default {
     console.log('item:', this.item)
   },
   methods: {
-    onClick() {
+    onClick () {
       this.updateTimeLines(this.item.start, this.item.end);
+    },
+    handleStart (e) {
+      console.log('dragstart-在元素开始被拖动时候触发')
+    },
+    handleDrag () {
+      console.log('drag-在元素被拖动时候反复触发')
+    },
+    handleEnd () {
+      console.log('dragend-在拖动操作完成时触发')
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.runTime {
-}
-.plan {
+.flight {
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -77,31 +72,5 @@ export default {
   font-size: 0.8rem;
   border: 1px solid #f0f0f0;
   // opacity: 0.8;
-}
-
-.detail {
-  .header {
-    text-align: center;
-    font-size: 1rem;
-  }
-}
-
-.detail ul {
-  list-style: none;
-  padding: 0px;
-  li {
-    span {
-      display: inline-block;
-      width: 80px;
-      color: #777;
-      font-size: 0.8rem;
-    }
-    span:first-child {
-      text-align: right;
-    }
-
-    span:last-child {
-    }
-  }
 }
 </style>

@@ -6,6 +6,7 @@
     ></div>
     <div
       class="gantt-block"
+      @drop="handelDrop(e)"
       :class="activeRow=== index ? 'gantt-active-row' : ''"
       :style="blockStyle"
       v-for="(data, index) in showDatas"
@@ -51,6 +52,7 @@
 
 <script>
 import dr from "../dynamic-render.js";
+import emitter from "../../mixins/emitter";
 import { isUndef, warn } from "../../utils/tool.js";
 
 export default {
@@ -60,7 +62,7 @@ export default {
       activeRow: ''
     }
   },
-  mixins: [dr],
+  mixins: [dr, emitter],
   props: {
     dataKey: String,
     itemKey: String,
@@ -97,12 +99,19 @@ export default {
     blockStyle() {
       return {
         backgroundSize: `${this.cellWidth}px ${this.cellHeight}px`,
-        height: `${this.cellHeight/1.2}px`
+        height: `${this.cellHeight}px`
       };
     }
   },
 
   methods: {
+    handelDrop (e) {
+      console.log('handle_drop-当元素在目的地放下时触发')
+      console.log('drop:', e)
+      // this.dispatch('Gantt', 'handelDrop', e);
+      this.$emit('handelDrop', e)
+      e.preventDefault()
+    },
     /**
      * 根据renderAarrys拼接需要渲染的数组
      *
